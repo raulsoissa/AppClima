@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import CityInfo from '../CityInfo/CityInfo'
+import CityInfo from '../CityInfo/'
 import Weather from '../Weather/Weather'
 
 const renderCityAndCountry = CityAndCountry => {
