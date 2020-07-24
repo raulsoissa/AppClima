@@ -5,7 +5,7 @@ import CityInfo from '../CityInfo/'
 import Weather from '../Weather/Weather'
 import { List, ListItem } from '@material-ui/core'
 
-const renderCityAndCountry = eventOnClickCity=> CityAndCountry => { // esto es = a esto -> = (eventOnClickCity, CityAndCountry) =>
+const renderCityAndCountry = eventOnClickCity => CityAndCountry => { // esto es = a esto -> = (eventOnClickCity, CityAndCountry) =>
     const { city, country } = CityAndCountry
 
     return (
