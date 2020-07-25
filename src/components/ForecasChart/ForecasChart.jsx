@@ -4,7 +4,7 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'r
 
 const ForecasChart = ({data}) => {
     return (
-        <div>
+        <div data-testid="forecastChart-cont">
             <LineChart height={250} width={700} margin={{ top:20, bottom: 20, left: 5, right: 5}} data={data}>
                 <CartesianGrid></CartesianGrid>
                 <XAxis dataKey="dayHour"></XAxis>
