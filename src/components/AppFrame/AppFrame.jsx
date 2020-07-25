@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography'
 import { IconContext } from 'react-icons'
 import { WiDaySunny } from 'react-icons/wi'
 
-const AppFrame = props => {
+const AppFrame = ({ children }) => {
     return (
         <Grid container justify="center" >
             <AppBar position="static">
@@ -27,15 +27,15 @@ const AppFrame = props => {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <Grid container item xs={12} sm={11} md={10} bg={8}>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus nisi, aut optio possimus id cumque iste magnam quas quis veniam! Qui corporis dolorum excepturi obcaecati reiciendis nam unde quia maiores?
+            <Grid item xs={12} sm={11} md={10} lg={8}>
+                {children}
             </Grid>
         </Grid>
     )
 }
 
 AppFrame.propTypes = {
-
+    children: PropTypes.node,
 }
 
 export default AppFrame
