@@ -31,6 +31,16 @@ const data = [
         "dayHour": "Lun 22",
         "min":13,
         "max":22,
+    },
+    {
+        "dayHour": "Mar 23",
+        "min":12,
+        "max":20,
+    },
+    {
+        "dayHour": "Mie 24",
+        "min":10,
+        "max":18,
     }
 ]
 
