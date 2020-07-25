@@ -1,16 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { useHistory } from 'react-router-dom'
 
-const MainPage = props => {
+const MainPage = () => {
+    const history = useHistory()
+    const onClickHandler = () => {
+        history.push("/city");
+    }
     return (
         <div>
             MainPage
+            <button onClick={onClickHandler}>Ir a City Page</button>
         </div>
     )
 }
 
-MainPage.propTypes = {
-
-}
 
 export default MainPage
