@@ -4,7 +4,8 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Responsi
 
 const ForecasChart = ({data}) => {
     return (
-        <ResponsiveContainer data-testid="forecastChart-cont" height={250} width={"95%"}>
+    
+        <ResponsiveContainer height={250} width={"95%"}>
             <LineChart margin={{ top:20, bottom: 20, left: 5, right: 5}} data={data}>
                 <CartesianGrid></CartesianGrid>
                 <XAxis dataKey="dayHour"></XAxis>
