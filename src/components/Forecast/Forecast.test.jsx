@@ -16,6 +16,6 @@ test('Forecast render ', async () => {
 
     const forecastItems = await findAllByTestId("forecast-item-cont")
 
-    expect(forecastItems).toHaveLenght(6)
+    expect(forecastItems).toHaveLength(6)
 })
 

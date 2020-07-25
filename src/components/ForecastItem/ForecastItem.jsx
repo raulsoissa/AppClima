@@ -8,7 +8,7 @@ import IconState, {validValues} from '../IconState'
 const ForecastItem = ({ weekDay, hour, state, temperature}) => {
     return (
         <div>
-            <Grid container direction="column" justify="center" alignItems="center">
+            <Grid data-testid="forecast-cont" container direction="column" justify="center" alignItems="center">
                 <Grid item>
                     <Typography>{weekDay}</Typography>
                 </Grid>

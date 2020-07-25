@@ -2,16 +2,10 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import ForecastItem from './ForecastItem'
 
-test('ForecastItem render',async () => {
-    const { findByText, findAllByRole } = 
-        render(<ForecastItem hour={10} temperature={23} state="sunny" weekDay="Lunes"/>)
+test('ForecastItem render', async () => {
+    const { findAllByTestId } = render(<ForecastItem hour={10} state={"sunny"} temperature={23} weekDay="Lunes"/>)
 
-    const hour = await findByText(/10/)
-    const temperature = await findByText(/23/)
-    const StateAndWeekday = await findAllByRole("heading")
+    const forecastItems = await findAllByTestId("forecast-cont")
 
-    expect(hour).toHaveTextContent("10")
-    expect(temperature).toHaveTextContent("23")
-    expect(StateAndWeekday[0]).toHaveTextContent("sunny")
-    expect(StateAndWeekday[1]).toHaveTextContent("Lunes")
+    expect(forecastItems).toHaveLength(1)
 })
