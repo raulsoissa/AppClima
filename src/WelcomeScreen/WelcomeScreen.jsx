@@ -9,8 +9,6 @@ const WelcomeScreen = ({ children }) => {
     const myRefDiv = useRef(null)
     const [vanta, setVanta] = useState(0)
 
-    console.log(" myRefDiv.current ",myRefDiv.current)
-
     useEffect(() => {
         if (!vanta) {
             setVanta(Clouds({
@@ -26,10 +24,8 @@ const WelcomeScreen = ({ children }) => {
         }
     }, [vanta])
 
-
-
     return (
-        <div ref={myRefDiv}>
+        <div className="full" ref={myRefDiv}>
             WelcomeScreen
         </div>
     )
