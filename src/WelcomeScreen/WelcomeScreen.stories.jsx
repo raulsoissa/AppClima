@@ -7,5 +7,7 @@ export default {
 }
 
 export const WelcomeScreenExample = () => (
-    <WelcomeScreen />
+    <WelcomeScreen>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo laudantium perspiciatis dicta id, corrupti et? Laborum nihil dolor officiis veritatis ex quidem saepe porro, iste dolores illum laboriosam sed doloremque!
+    </WelcomeScreen>
 )

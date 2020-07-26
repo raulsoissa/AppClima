@@ -26,7 +26,7 @@ const WelcomeScreen = ({ children }) => {
 
     return (
         <div className="full" ref={myRefDiv}>
-            WelcomeScreen
+            {children}
         </div>
     )
 }
