@@ -1,9 +1,14 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 
+
 const WelcomeScreen = ({ children }) => {
+
+    const myRefDiv = useRef(null)
+    console.log(" myRefDiv.current ",myRefDiv.current)
+
     return (
-        <div>
+        <div ref={myRefDiv}>
             WelcomeScreen
         </div>
     )
