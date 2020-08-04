@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 import convertUnits from 'convert-units'
+import Alert from '@material-ui/lab/Alert'
 import Grid from '@material-ui/core/Grid'
 import CityInfo from '../CityInfo/'
 import Weather from '../Weather/Weather'
@@ -31,6 +32,7 @@ const renderCityAndCountry = eventOnClickCity => (CityAndCountry, weather) => { 
 
 const CityList = ({ cities, onClickCity }) => {
     const [allWeather, setAllWeather] = useState({})
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         const setWeather = (city, country, countryCode) => {
@@ -47,6 +49,18 @@ const CityList = ({ cities, onClickCity }) => {
 
                    setAllWeather(allWeather => ({...allWeather, [propName]: propValue }))
                 })
+                .catch(error => {
+                    if (error.response) {
+                        const {data, status} = error.response
+                        console.log("data", data)
+                        console.log("status", status)
+                        setError("Ha ocurrido un error en el servidor del clima")
+                    } else if (error.request) {
+                        setError("Verifique su conexión a internet")
+                    } else {
+                        setError("Error al cargar los datos")
+                    }
+                })
         }
 
         cities.forEach(({ city, country, countryCode }) => {
@@ -57,12 +71,17 @@ const CityList = ({ cities, onClickCity }) => {
     //const weather = { temperature: 10, state:"sunny"}
 
     return (
-        <List>
+        <div className="">
             {
-                cities.map(CityAndCountry => renderCityAndCountry(onClickCity)(CityAndCountry, 
-                    allWeather[`${CityAndCountry.city}-${CityAndCountry.country}`]))
+                error && <Alert severity="error" onClose={() => setError(null)}>{error}</Alert>
             }
-        </List>
+            <List>
+                {
+                    cities.map(CityAndCountry => renderCityAndCountry(onClickCity)(CityAndCountry, 
+                        allWeather[`${CityAndCountry.city}-${CityAndCountry.country}`]))
+                }
+            </List>
+        </div>
     )
 }
 
