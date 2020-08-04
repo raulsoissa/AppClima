@@ -18,11 +18,7 @@ const renderCityAndCountry = eventOnClickCity => (CityAndCountry, weather) => { 
                     <CityInfo city={city} country={country}/>
                 </Grid>
                 <Grid item md={3} xs={12}>
-                    { 
-                        weather ?
-                            (<Weather temperature={weather.temperature} state={weather.state}/>)
-                            : ("no hay datos") 
-                    }
+                    <Weather temperature={weather && weather.temperature} state={weather && weather.state}/>
                 </Grid>
             </Grid>
         </ListItem>
@@ -48,10 +44,6 @@ const CityList = ({ cities, onClickCity }) => {
                     const state = data.weather[0].main.toLowerCase()
                     const propName = `${city}-${country}`
                     const propValue = { temperature,state }
-
-                    console.log("data", data)
-                    console.log("propName", propName)
-                    console.log("propValue", propValue)
 
                    setAllWeather(allWeather => ({...allWeather, [propName]: propValue }))
                 })
