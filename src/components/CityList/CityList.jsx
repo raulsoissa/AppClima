@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
+import axios from 'axios'
 import Grid from '@material-ui/core/Grid'
 import CityInfo from '../CityInfo/'
 import Weather from '../Weather/Weather'
@@ -27,12 +28,38 @@ const renderCityAndCountry = eventOnClickCity => (CityAndCountry, weather) => { 
     )
 }
 
+
+
+
+
 const CityList = ({ cities, onClickCity }) => {
-    const [allWeather, setallWeather] = useState({})
+    const [allWeather, setAllWeather] = useState({})
 
     useEffect(() => {
-        
-    }, [])
+        const setWeather = (city, country, countryCode) => {
+            const api_key ="adb866c0cb646005a389d2f8e9268761"
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}, ${countryCode}&appid=${api_key}`
+            axios
+                .get(url)
+                .then(response => {
+                    const { data } = response
+                    const temperature = data.main.temp
+                    const state = data.weather[0].main.toLowerCase()
+                    const propName = `${city}-${country}`
+                    const propValue = { temperature,state }
+
+                    console.log("data", data)
+                    console.log("propName", propName)
+                    console.log("propValue", propValue)
+
+                   setAllWeather(allWeather => ({...allWeather, [propName]: propValue }))
+                })
+        }
+
+        cities.forEach(({ city, country, countryCode }) => {
+            setWeather(city, country, countryCode)
+        });
+    }, [cities])
 
     //const weather = { temperature: 10, state:"sunny"}
 
@@ -51,6 +78,7 @@ CityList.propTypes = {
         PropTypes.shape({
             city: PropTypes.string.isRequired,
             country: PropTypes.string.isRequired,
+            countryCode: PropTypes.string.isRequired,
         }),
     ).isRequired,
     onClickCity: PropTypes.func.isRequired,

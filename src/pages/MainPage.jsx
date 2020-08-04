@@ -5,10 +5,10 @@ import CityList from '../components/CityList'
 import AppFrame from '../components/AppFrame'
 
 const cities = [
-    {city: "Santiago", country: "Chile"},
-    {city: "Buenos Aires", country: "Argentina"},
-    {city: "Cordoba", country: "Argentina"},
-    {city: "Valparaiso", country: "Chile"}
+    {city: "Santiago", country: "Chile", countryCode: "CL"},
+    {city: "Buenos Aires", country: "Argentina", countryCode: "AR"},
+    {city: "Cordoba", country: "Argentina", countryCode: "AR"},
+    {city: "Valparaiso", country: "Chile", countryCode: "CL"}
 ]
 
 
